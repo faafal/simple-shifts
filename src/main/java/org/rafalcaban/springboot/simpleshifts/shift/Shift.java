@@ -1,10 +1,10 @@
-package org.rafalcaban.springboot.shift;
+package org.rafalcaban.springboot.simpleshifts.shift;
 
 import java.time.LocalDateTime;
 
 public class Shift {
 
-    private long id;
+    private Long id;
     private LocalDateTime shiftStartTime;
     private LocalDateTime shiftEndTime;
     private long employeeId;
@@ -12,14 +12,14 @@ public class Shift {
     public Shift() {
     }
 
-    public Shift(long id, LocalDateTime shiftStartTime, LocalDateTime shiftEndTime, long employeeId) {
+    public Shift(Long id, LocalDateTime shiftStartTime, LocalDateTime shiftEndTime, long employeeId) {
         this.id = id;
         this.shiftStartTime = shiftStartTime;
         this.shiftEndTime = shiftEndTime;
         this.employeeId = employeeId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
