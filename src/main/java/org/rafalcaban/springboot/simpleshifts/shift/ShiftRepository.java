@@ -1,4 +1,4 @@
-package org.rafalcaban.springboot.shift;
+package org.rafalcaban.springboot.simpleshifts.shift;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class ShiftRepository {
 
     private static final List<Shift> shifts = new ArrayList<>();
-    private static int counter = 0;
+    private static Long counter = 0L;
 
     {
         shifts.add(new Shift(
