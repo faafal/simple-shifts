@@ -25,7 +25,7 @@ public class ShiftController {
     }
 
     @DeleteMapping("/{shiftId}")
-    public boolean deleteShift(@PathVariable long shiftId) {
-        return service.deleteShift(shiftId);
+    public void deleteShift(@PathVariable long shiftId) {
+        service.deleteShift(shiftId);
     }
 }

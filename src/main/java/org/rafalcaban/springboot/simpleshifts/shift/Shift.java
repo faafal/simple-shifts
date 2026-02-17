@@ -1,9 +1,17 @@
 package org.rafalcaban.springboot.simpleshifts.shift;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class Shift {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime shiftStartTime;
     private LocalDateTime shiftEndTime;
@@ -35,7 +43,7 @@ public class Shift {
         return employeeId;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

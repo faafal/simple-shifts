@@ -14,14 +14,14 @@ public class ShiftService {
     }
 
     public Shift addShift(Shift shift) {
-        return repository.addShift(shift);
+        return repository.save(shift);
     }
 
     public List<Shift> getAllShifts(){
-        return repository.getAllShifts();
+        return repository.findAll();
     }
 
-    public boolean deleteShift(long shiftId){
-        return repository.deleteShift(shiftId);
+    public void deleteShift(long shiftId){
+        repository.deleteById(shiftId);
     }
 }
