@@ -35,7 +35,6 @@ public class Person {
         return surname;
     }
 
-
     public void setId(Long id) {
         this.id = id;
     }

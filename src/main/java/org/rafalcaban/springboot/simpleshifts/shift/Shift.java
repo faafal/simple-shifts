@@ -1,9 +1,7 @@
 package org.rafalcaban.springboot.simpleshifts.shift;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.rafalcaban.springboot.simpleshifts.person.Person;
 
 import java.time.LocalDateTime;
 
@@ -15,16 +13,18 @@ public class Shift {
     private Long id;
     private LocalDateTime shiftStartTime;
     private LocalDateTime shiftEndTime;
-    private long employeeId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     public Shift() {
     }
 
-    public Shift(Long id, LocalDateTime shiftStartTime, LocalDateTime shiftEndTime, long employeeId) {
+    public Shift(Long id, LocalDateTime shiftStartTime, LocalDateTime shiftEndTime, Person person) {
         this.id = id;
         this.shiftStartTime = shiftStartTime;
         this.shiftEndTime = shiftEndTime;
-        this.employeeId = employeeId;
+        this.person = person;
     }
 
     public Long getId() {
@@ -39,8 +39,8 @@ public class Shift {
         return shiftEndTime;
     }
 
-    public long getEmployeeId() {
-        return employeeId;
+    public Person getPerson() {
+        return person;
     }
 
     public void setId(Long id) {
@@ -55,7 +55,7 @@ public class Shift {
         this.shiftEndTime = shiftEndTime;
     }
 
-    public void setEmployeeId(long employeeId) {
-        this.employeeId = employeeId;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }
