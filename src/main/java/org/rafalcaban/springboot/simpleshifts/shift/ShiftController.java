@@ -15,12 +15,12 @@ public class ShiftController {
     }
 
     @PostMapping
-    public Shift addShift(@RequestBody Shift shift) {
-        return service.addShift(shift);
+    public ShiftDto addShift(@RequestBody ShiftDto shiftDto) {
+        return service.addShift(shiftDto);
     }
 
     @GetMapping
-    public List<Shift> getAllShifts() {
+    public List<ShiftDto> getAllShifts() {
         return service.getAllShifts();
     }
 

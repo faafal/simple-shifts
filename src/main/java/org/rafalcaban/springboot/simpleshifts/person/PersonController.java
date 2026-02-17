@@ -15,12 +15,12 @@ public class PersonController {
     }
 
     @PostMapping
-    public Person addPerson(@RequestBody Person person) {
-        return service.addPerson(person);
+    public PersonDto addPerson(@RequestBody PersonDto personDto) {
+        return service.addPerson(personDto);
     }
 
     @GetMapping
-    public List<Person> getAllPeople() {
+    public List<PersonDto> getAllPeople() {
         return service.getAllPeople();
     }
 

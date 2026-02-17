@@ -13,12 +13,27 @@ public class PersonService {
         this.repository = repository;
     }
 
-    public Person addPerson(Person person) {
-        return repository.save(person);
+    public PersonDto addPerson(PersonDto personDto) {
+        Person personToSave = new Person();
+        personToSave.setName(personDto.getName());
+        personToSave.setSurname(personDto.getSurname());
+
+        Person savedPerson = repository.save(personToSave);
+
+        PersonDto responseDto = new PersonDto();
+        responseDto.setId(savedPerson.getId());
+        responseDto.setName(savedPerson.getName());
+        responseDto.setSurname(savedPerson.getSurname());
+
+        return responseDto;
+
     }
 
-    public List<Person> getAllPeople(){
-        return repository.findAll();
+    public List<PersonDto> getAllPeople(){
+        return repository.findAll()
+                .stream()
+                .map(person -> new PersonDto(person.getId(), person.getName(), person.getSurname()))
+                .toList();
     }
 
     public void deletePerson(long personId){
