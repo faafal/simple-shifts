@@ -1,9 +1,14 @@
 package org.rafalcaban.springboot.simpleshifts.person;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PersonDto {
 
     private Long id;
+    @PersonDtoFieldValidation
     private String name;
+    @PersonDtoFieldValidation
     private String surname;
 
     public PersonDto(Long id, String name, String surname) {

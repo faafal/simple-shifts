@@ -1,5 +1,6 @@
 package org.rafalcaban.springboot.simpleshifts.person;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public PersonDto addPerson(@RequestBody PersonDto personDto) {
+    public PersonDto addPerson(@Valid @RequestBody PersonDto personDto) {
         return service.addPerson(personDto);
     }
 

@@ -1,5 +1,6 @@
 package org.rafalcaban.springboot.simpleshifts.shift;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class ShiftController {
     }
 
     @PostMapping
-    public ShiftDto addShift(@RequestBody ShiftDto shiftDto) {
+    public ShiftDto addShift(@Valid @RequestBody ShiftDto shiftDto) {
         return service.addShift(shiftDto);
     }
 
